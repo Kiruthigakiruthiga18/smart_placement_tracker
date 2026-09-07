@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard - Smart Placement Tracker</title>
+  <link rel="stylesheet" href="css/dashborad.css" />
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">Smart Placement</div>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item active" data-section="overview">Dashboard</a>
+        <a href="#" class="nav-item" data-section="profile">My Profile</a>
+        <a href="#" class="nav-item" data-section="skills">Skills</a>
+        <a href="#" class="nav-item" data-section="assessment">Skill Assessment</a>
+        <a href="#" class="nav-item" data-section="resume">Resume</a>
+        <a href="#" class="nav-item" data-section="jobs">Job Recommendations</a>
+        <a href="#" class="nav-item" data-section="applications">Applications</a>
+        <a href="#" class="nav-item" data-section="interviews">Interview Tracker</a>
+        <a href="#" class="nav-item" data-section="roadmap">Preparation Roadmap</a>
+        <a href="#" class="nav-item" data-section="goals">Goals</a>
+        <a href="#" class="nav-item" data-section="notifications">Notifications</a>
+        <a href="#" class="nav-item" data-section="analytics">Analytics</a>
+        <a href="#" class="nav-item" data-section="settings">Settings</a>
+        <a href="#" class="nav-item" data-section="logout">logout</a>
+    </nav>
+ 
+      <div class="sidebar-footer">
+        <button class="btn-hamburger" id="hamburgerBtn">☰</button>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="main-wrap">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="btn-hamburger mobile-only" id="topHamburgerBtn">☰</button>
+          <div class="page-title" id="pageTitle">Dashboard</div>
+        </div>
+        <div class="topbar-right">
+          <div class="notification-pill" id="notifPill">
+            <span id="notifCount">0</span>
+          </div>
+          <div class="user-chip" id="userChip">
+            <span id="userName">Student</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="content">
+        <!-- Overview -->
+        <section id="section-overview" class="section active">
+          <h2 id="welcomeText">Welcome back, Student</h2>
+          <div class="cards-grid">
+            <div class="card stat-card">
+              <div class="card-title">Profile Completion</div>
+              <div class="stat-big" id="ovProfileCompletion">0%</div>
+            </div>
+            <div class="card stat-card">
+              <div class="card-title">Placement Readiness</div>
+              <div class="stat-big" id="ovPlacementReadiness">0%</div>
+            </div>
+            <div class="card stat-card">
+              <div class="card-title">Skills Completed</div>
+              <div class="stat-big" id="ovSkillsCompleted">0/0</div>
+            </div>
+            <div class="card stat-card">
+              <div class="card-title">Jobs Applied</div>
+              <div class="stat-big" id="ovJobsApplied">0</div>
+            </div>
+            <div class="card stat-card">
+              <div class="card-title">Interviews</div>
+              <div class="stat-big" id="ovInterviews">0</div>
+            </div>
+            <div class="card stat-card">
+              <div class="card-title">Shortlisted</div>
+              <div class="stat-big" id="ovShortlisted">0</div>
+            </div>
+            <div class="card stat-card">
+              <div class="card-title">Preparation Progress</div>
+              <div class="stat-big" id="ovPrepProgress">0%</div>
+            </div>
+          </div>
+
+          <div class="section-title">Quick Actions</div>
+          <div class="quick-actions">
+            <button class="btn-primary" data-nav="profile">Complete Profile</button>
+            <button class="btn-primary" data-nav="skills">Manage Skills</button>
+            <button class="btn-primary" data-nav="jobs">Find Jobs</button>
+            <button class="btn-primary" data-nav="resume">Build Resume</button>
+          </div>
+        </section>
+
+        <!-- Profile -->
+        <section id="section-profile" class="section">
+          <h2>My Profile</h2>
+          <form id="profileForm">
+            <div class="form-grid">
+              <div>
+                <label>Full Name</label>
+                <input id="pfName" />
+              </div>
+              <div>
+                <label>Email</label>
+                <input id="pfEmail" type="email" />
+              </div>
+              <div>
+                <label>Phone</label>
+                <input id="pfPhone" />
+              </div>
+              <div>
+                <label>College</label>
+                <input id="pfCollege" />
+              </div>
+              <div>
+                <label>Degree</label>
+                <input id="pfDegree" />
+              </div>
+              <div>
+                <label>Department</label>
+                <input id="pfDept" />
+              </div>
+              <div>
+                <label>Graduation Year</label>
+                <input id="pfYear" type="number" />
+              </div>
+              <div>
+                <label>CGPA</label>
+                <input id="pfCgpa" step="0.01" />
+              </div>
+              <div>
+                <label>Location</label>
+                <input id="pfLocation" />
+              </div>
+              <div>
+                <label>Career Objective</label>
+                <textarea id="pfObjective" rows="3"></textarea>
+              </div>
+              <div>
+                <label>GitHub</label>
+                <input id="pfGithub" />
+              </div>
+              <div>
+                <label>LinkedIn</label>
+                <input id="pfLinkedin" />
+              </div>
+              <div>
+                <label>Portfolio</label>
+                <input id="pfPortfolio" />
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn-primary">Save Profile</button>
+              <span id="pfMsg" class="muted"></span>
+            </div>
+          </form>
+          <div class="section-title">Profile Completion</div>
+          <div class="progress-wrap">
+            <div class="progress-bar" id="pfProgressBg"><div class="progress-fill" id="pfProgressFill"></div></div>
+            <div id="pfProgressText">0%</div>
+          </div>
+        </section>
+
+        <!-- Skills -->
+        <section id="section-skills" class="section">
+          <h2>Skills</h2>
+          <div class="form-inline">
+            <select id="skCategory">
+              <option value="Programming">Programming</option>
+              <option value="Web">Web</option>
+              <option value="Database">Database</option>
+              <option value="Other">Other</option>
+            </select>
+            <input id="skName" placeholder="Skill name (e.g. Java)" />
+            <select id="skLevel">
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+              <option value="Expert">Expert</option>
+            </select>
+            <button id="skAddBtn" class="btn-primary">Add Skill</button>
+          </div>
+          <div id="skillsList" class="cards-grid"></div>
+        </section>
+
+        <!-- Assessment -->
+        <section id="section-assessment" class="section">
+          <h2>Skill Assessment</h2>
+          <div class="form-inline">
+            <select id="asSubject">
+              <option value="Java">Java</option>
+              <option value="Python">Python</option>
+              <option value="SQL">SQL</option>
+              <option value="JavaScript">JavaScript</option>
+              <option value="HTML/CSS">HTML/CSS</option>
+              <option value="DBMS">DBMS</option>
+              <option value="Aptitude">Aptitude</option>
+            </select>
+            <button id="asStartBtn" class="btn-primary">Start Assessment</button>
+          </div>
+          <div id="asArea" class="assessment-area" style="display:none;">
+            <div class="as-header">
+              <div>Question <span id="asQNum">1</span>/<span id="asQTotal">10</span></div>
+              <div>Time: <span id="asTimer">00:00</span></div>
+            </div>
+            <div id="asQuestionText" class="as-question"></div>
+            <div id="asOptions" class="as-options"></div>
+            <div class="as-actions">
+              <button id="asPrevBtn" class="btn-outline">Previous</button>
+              <button id="asNextBtn" class="btn-primary">Next</button>
+              <button id="asSubmitBtn" class="btn-primary">Submit</button>
+            </div>
+          </div>
+          <div id="asResult" class="assessment-result" style="display:none;"></div>
+        </section>
+
+        <!-- Resume -->
+        <section id="section-resume" class="section">
+          <h2>Resume</h2>
+          <div class="form-inline">
+            <button id="rsUseProfileBtn" class="btn-outline">Use Profile Data</button>
+            <button id="rsPreviewBtn" class="btn-primary">Preview Resume</button>
+            <button id="rsPrintBtn" class="btn-outline">Download / Print</button>
+          </div>
+          <div id="resumePreview" class="resume-preview"></div>
+        </section>
+
+        <!-- Jobs -->
+        <section id="section-jobs" class="section">
+          <h2>Job Recommendations</h2>
+          <div class="form-inline">
+            <input id="jobSearch" placeholder="Search by company or role" />
+            <select id="jobLocationFilter">
+              <option value="">All Locations</option>
+              <option value="Remote">Remote</option>
+              <option value="Chennai">Chennai</option>
+              <option value="Bangalore">Bangalore</option>
+              <option value="Coimbatore">Coimbatore</option>
+            </select>
+          </div>
+          <div id="jobsList" class="cards-grid"></div>
+        </section>
+
+        <!-- Applications -->
+        <section id="section-applications" class="section">
+          <h2>Applications</h2>
+          <div class="form-inline">
+            <input id="appCompany" placeholder="Company" />
+            <input id="appRole" placeholder="Role" />
+            <input id="appDate" type="date" />
+            <select id="appStatus">
+              <option value="Applied">Applied</option>
+              <option value="Under Review">Under Review</option>
+              <option value="Shortlisted">Shortlisted</option>
+              <option value="Interview">Interview</option>
+              <option value="Selected">Selected</option>
+              <option value="Rejected">Rejected</option>
+            </select>
+            <button id="appAddBtn" class="btn-primary">Add Application</button>
+          </div>
+          <div class="form-inline">
+            <select id="appFilterStatus">
+              <option value="">All Statuses</option>
+              <option value="Applied">Applied</option>
+              <option value="Under Review">Under Review</option>
+              <option value="Shortlisted">Shortlisted</option>
+              <option value="Interview">Interview</option>
+              <option value="Selected">Selected</option>
+              <option value="Rejected">Rejected</option>
+            </select>
+          </div>
+          <div id="appList" class="cards-grid"></div>
+          <div class="section-title">Application Stats</div>
+          <div class="mini-stats" id="appStats"></div>
+        </section>
+
+        <!-- Interviews -->
+        <section id="section-interviews" class="section">
+          <h2>Interview Tracker</h2>
+          <div class="form-inline">
+            <input id="intCompany" placeholder="Company" />
+            <input id="intRole" placeholder="Role" />
+            <input id="intDate" type="date" />
+            <select id="intType">
+              <option value="Technical">Technical</option>
+              <option value="HR">HR</option>
+              <option value="Managerial">Managerial</option>
+              <option value="Coding">Coding</option>
+              <option value="Aptitude">Aptitude</option>
+            </select>
+            <select id="intStatus">
+              <option value="Scheduled">Scheduled</option>
+              <option value="Completed">Completed</option>
+              <option value="Selected">Selected</option>
+              <option value="Rejected">Rejected</option>
+            </select>
+            <button id="intAddBtn" class="btn-primary">Add Interview</button>
+          </div>
+          <div class="form-inline">
+            <select id="intFilterStatus">
+              <option value="">All Statuses</option>
+              <option value="Scheduled">Scheduled</option>
+              <option value="Completed">Completed</option>
+              <option value="Selected">Selected</option>
+              <option value="Rejected">Rejected</option>
+            </select>
+          </div>
+          <div id="intList" class="cards-grid"></div>
+          <div class="section-title">Preparation Checklist</div>
+          <ul class="checklist">
+            <li>☐ Research company</li>
+            <li>☐ Review resume</li>
+            <li>☐ Practice coding</li>
+            <li>☐ Prepare HR questions</li>
+            <li>☐ Prepare self introduction</li>
+          </ul>
+        </section>
+
+        <!-- Roadmap -->
+        <section id="section-roadmap" class="section">
+          <h2>Preparation Roadmap</h2>
+          <div id="roadmapList" class="roadmap-list"></div>
+          <div class="section-title">Overall Roadmap Progress</div>
+          <div class="progress-wrap">
+            <div class="progress-bar" id="rmProgressBg"><div class="progress-fill" id="rmProgressFill"></div></div>
+            <div id="rmProgressText">0%</div>
+          </div>
+        </section>
+
+        <!-- Goals -->
+        <section id="section-goals" class="section">
+          <h2>Goals</h2>
+          <div class="form-inline">
+            <input id="goalTitle" placeholder="Goal title" />
+            <input id="goalDesc" placeholder="Description" />
+            <input id="goalDeadline" type="date" />
+            <button id="goalAddBtn" class="btn-primary">Add Goal</button>
+          </div>
+          <div id="goalList" class="cards-grid"></div>
+        </section>
+
+        <!-- Notifications -->
+        <section id="section-notifications" class="section">
+          <h2>Notifications</h2>
+          <button id="notifClearBtn" class="btn-outline">Clear All</button>
+          <div id="notifList" class="notif-list"></div>
+        </section>
+
+        <!-- Analytics -->
+        <section id="section-analytics" class="section">
+          <h2>Placement Analytics</h2>
+          <div class="cards-grid">
+            <div class="card stat-card">
+              <div class="card-title">Applications</div>
+              <div class="stat-big" id="anApplications">0</div>
+            </div>
+            <div class="card stat-card">
+              <div class="card-title">Interviews</div>
+              <div class="stat-big" id="anInterviews">0</div>
+            </div>
+            <div class="card stat-card">
+              <div class="card-title">Shortlisted</div>
+              <div class="stat-big" id="anShortlisted">0</div>
+            </div>
+            <div class="card stat-card">
+              <div class="card-title">Selected</div>
+              <div class="stat-big" id="anSelected">0</div>
+            </div>
+            <div class="card stat-card">
+              <div class="card-title">Rejected</div>
+              <div class="stat-big" id="anRejected">0</div>
+            </div>
+          </div>
+          <div class="section-title">Success Rates</div>
+          <div class="mini-stats" id="anRates"></div>
+          <div class="section-title">Readiness Breakdown</div>
+          <div class="mini-stats" id="anReadiness"></div>
+        </section>
+
+        <!-- Settings -->
+        <section id="section-settings" class="section">
+          <h2>Settings</h2>
+          <div class="form-grid">
+            <div>
+              <label>Theme</label>
+              <select id="stTheme">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+              </select>
+            </div>
+            <div>
+              <label>Notifications</label>
+              <select id="stNotif">
+                <option value="on">On</option>
+                <option value="off">Off</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button id="stSaveBtn" class="btn-primary">Save Settings</button>
+            <button id="stResetDemoBtn" class="btn-outline">Reset Demo Data</button>
+            <button id="stClearDataBtn" class="btn-outline">Clear Application Data</button>
+          </div>
+          <div id="stMsg" class="muted"></div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script src="js/dashborad.js"></script>
+</body>
+</html>
